@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="theme-color" content="#000000">
+        <!--
+            manifest.json provides metadata used when your web app is added to the
+            homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+        -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <link rel="stylesheet" href="./index.css">
+        <title>測試</title>
+    </head>
+    <body>
+        <noscript>
+            You need to enable JavaScript to run this app.
+        </noscript>
+        <div id="container">
+            <div id="player"></div>
+            <div id="bt-group">
+                <button type="button" class="btn btn-light" onclick="btclick('positive')">
+                    正向
+                </button>
+                <button type="button" class="btn btn-light" onclick="btclick('negative')">
+                    負向
+                </button>
+                <button type="button" class="btn btn-light" onclick="btclick('others')">
+                    其他
+                </button>
+                <button type="button" class="btn btn-light" onclick="reset()">
+                    清除
+                </button>
+            </div>
+        </div>
+        <div id="log-container">
+            <table>
+                <tbody id="log">
+
+                </tbody>
+            </table>
+        </div>
+        <script src="https://www.youtube.com/iframe_api"></script>
+        <script>
+            // 3. This function creates an <iframe> (and YouTube player)
+            //    after the API code downloads.
+            var player;
+            function onYouTubeIframeAPIReady() {
+                player = new YT.Player('player', {
+                    height: '390',
+                    width: '640',
+                    videoId: 'Z-EAtvto7d4',
+                    events: {
+                    }
+                });
+            }
+
+            var log = document.getElementById("log");
+
+            // player.getCurrentTime
+            function btclick(emo){
+                var time = player.getCurrentTime().toFixed(1);
+                log.innerHTML += `
+                    <tr>
+                        <td>${time}</td>
+                        <td>${emo}</td>
+                    </tr>
+                `;
+            }
+
+            function reset(){
+                log.innerHTML = "";
+            }
+        </script>
+
+    </body>
+</html>

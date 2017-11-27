@@ -1,0 +1,38 @@
+div#bt-group button {
+    width: 100px;
+    height: 40px;
+    margin: 10px 10px;
+}
+
+body {
+    text-align: center;
+    padding: 20px;
+}
+
+#container {
+    display: inline-block;
+    width: 640px;
+}
+
+#log-container {
+    display: inline-block;
+    vertical-align: top;
+    width: 200px;
+}
+
+#log {
+    margin: 0 auto;
+}
+
+table {
+    margin-left: 20px;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    width: 90px;
+}
